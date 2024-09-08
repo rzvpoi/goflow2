@@ -43,8 +43,8 @@ to add new fields without rebuilding the proto.
 The `format` directory offers various utilities to format a message. It calls specific
 functions to marshal as JSON or text for instance.
 
-The `transport` provides different way of processing the message. Either sending it via Kafka or 
-send it to a file (or stdout).
+The `transport` provides different way of processing the message. Either sending it via Kafka, 
+send it to a file (or stdout) or to a TCP server.
 
 GoFlow2 is a wrapper of all the functions and chains them.
 
@@ -85,6 +85,7 @@ Production:
 * Convert to protobuf or json
 * Prints to the console/file
 * Sends to Kafka and partition
+* Sends to TCP Server
 
 Monitoring via Prometheus metrics
 
@@ -129,6 +130,13 @@ just send the output into a file.
 
 ```bash
 $ ./goflow2 -transport.file /var/logs/goflow2.log
+```
+
+To send output over TCP to a pipeline like Logstash instead of writing it to a file, you can define the
+server and port.
+
+```bash
+$ ./goflow2 -transport.tcp localhost:5044
 ```
 
 To enable Kafka and send protobuf, use the following arguments:
