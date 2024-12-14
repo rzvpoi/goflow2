@@ -39,7 +39,6 @@ func (d *FileDriver) openFile() error {
 }
 
 func (d *FileDriver) Init() error {
-	fmt.Print("Init file output!!!!!!!!")
 	d.q = make(chan bool, 1)
 
 	if d.fileDestination == "" {
