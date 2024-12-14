@@ -18,7 +18,7 @@ type TCPDriver struct {
 }
 
 func (d *TCPDriver) Prepare() error {
-	flag.StringVar(&d.destination, "transport.tcp", "localhost:5044", "TCP address to send data")
+	flag.StringVar(&d.destination, "transport.tcp.server", "localhost:5044", "TCP address to send data")
 	flag.StringVar(&d.lineSeparator, "transport.tcp.sep", "\n", "Line separator")
 	return nil
 }
@@ -70,7 +70,6 @@ func (d *TCPDriver) Close() error {
 }
 
 func init() {
-	// Register the TCP driver with the GoFlow2 transport
 	d := &TCPDriver{
 		lock: &sync.RWMutex{},
 	}

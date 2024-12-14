@@ -3,12 +3,13 @@ package file
 import (
 	"flag"
 	"fmt"
-	"github.com/netsampler/goflow2/v2/transport"
 	"io"
 	"os"
 	"os/signal"
 	"sync"
 	"syscall"
+
+	"github.com/netsampler/goflow2/v2/transport"
 )
 
 type FileDriver struct {
@@ -38,6 +39,7 @@ func (d *FileDriver) openFile() error {
 }
 
 func (d *FileDriver) Init() error {
+	fmt.Print("Init file output!!!!!!!!")
 	d.q = make(chan bool, 1)
 
 	if d.fileDestination == "" {

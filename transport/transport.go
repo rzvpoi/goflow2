@@ -59,7 +59,6 @@ func RegisterTransportDriver(name string, t TransportDriver) {
 	lock.Lock()
 	transportDrivers[name] = t
 	lock.Unlock()
-
 	if err := t.Prepare(); err != nil {
 		panic(err)
 	}

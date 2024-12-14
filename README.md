@@ -136,7 +136,8 @@ To send output over TCP to a pipeline like Logstash instead of writing it to a f
 server and port.
 
 ```bash
-$ ./goflow2 -transport.tcp localhost:5044
+$ ./goflow2 -transport=tcp \
+  -transport.tcp.server=localhost:5044
 ```
 
 To enable Kafka and send protobuf, use the following arguments:
